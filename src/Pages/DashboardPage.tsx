@@ -60,9 +60,10 @@ const DashboardPage = () => {
           <h1
             style={{
               margin: "1rem, 0",
+              color: "#ea2629",
             }}
           >
-            Dashboard
+            ESA Mobile
           </h1>
 
           <Link to="/logout">
@@ -72,40 +73,16 @@ const DashboardPage = () => {
           </Link>
         </header>
 
-        <Divider
+        {/* <Divider
           style={{
             color: "#000",
             borderColor: "#000",
             borderStyle: "solid",
             margin: "0",
           }}
-        />
+        /> */}
 
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            margin: "0.5rem",
-          }}
-        >
-          <h2
-            style={{
-              margin: "0",
-            }}
-          >
-            {user?.name} ({user?.phoneNumber})
-          </h2>
-          <Link to="/qr">
-            <SystemQRcodeOutline
-              fontSize={35}
-              style={{
-                padding: "0",
-                color: "#000",
-              }}
-            />
-          </Link>
-        </div>
+
 
         <Card
           style={{
@@ -115,6 +92,33 @@ const DashboardPage = () => {
             boxShadow: "4px 2px 6px #8c8c8c, -4px 2px 6px #8c8c8c"
           }}
         >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              // margin: "0.5rem",
+              color: "#fff",
+            }}
+          >
+            <h2
+              style={{
+                color: "#fff",
+                margin: "0",
+              }}
+            >
+              {user?.name} ({user?.phoneNumber})
+            </h2>
+            <Link to="/qr">
+              <SystemQRcodeOutline
+                fontSize={35}
+                style={{
+                  padding: "0",
+                  color: "#fff",
+                }}
+              />
+            </Link>
+          </div>
           <h3
             style={{
               fontWeight: "normal",
@@ -248,9 +252,8 @@ const DashboardPage = () => {
                 }}
               >
                 <img
-                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-                    pokemon.url.split("/")[6]
-                  }.png`}
+                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split("/")[6]
+                    }.png`}
                   alt={pokemon.name}
                 />
                 <h2
