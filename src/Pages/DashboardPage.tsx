@@ -9,6 +9,7 @@ import {
   UnorderedListOutline,
   AddCircleOutline,
   UploadOutline,
+  ScanningOutline
 } from "antd-mobile-icons";
 
 const DashboardPage = () => {
@@ -233,68 +234,66 @@ const DashboardPage = () => {
           </Card>
         </Card>
 
-        <Grid
-          columns={2}
-          style={{
-            overflow: "scroll",
-            maxHeight: "47vh",
-          }}
-        >
-          {pokemonData.map((pokemon: { name: string; url: string }) => (
-            <Grid.Item>
-              <div
-                key={pokemon.name}
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <img
-                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split("/")[6]
-                    }.png`}
-                  alt={pokemon.name}
-                />
-                <h2
-                  style={{
-                    marginTop: "0",
-                    marginBottom: "2rem",
-                  }}
-                >
-                  {pokemon.name}
-                </h2>
-              </div>
-            </Grid.Item>
-          ))}
-        </Grid>
-      </div>
 
-      <div
+      </div>
+      <Grid
+        columns={2}
         style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "100%",
-          position: "absolute",
-          bottom: "0",
-          backgroundColor: "#ea2629",
-          overflow: "hidden",
+          overflow: "scroll",
+          maxHeight: "53vh",
         }}
       >
-        <Link to="/scan">
-          <Button
-            fill="none"
-            style={{
-              padding: "1rem",
-              margin: "0.25rem",
-              color: "#fff"
-            }}
-          >
-            Scan QR
-          </Button>
-        </Link>
-      </div>
+        {pokemonData.map((pokemon: { name: string; url: string }) => (
+          <Grid.Item>
+            <div
+              key={pokemon.name}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <img
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split("/")[6]
+                  }.png`}
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split("/")[6]
+                  }.png`}
+                alt={pokemon.name}
+              />
+              <h2
+                style={{
+                  marginTop: "0",
+                  marginBottom: "2rem",
+                }}
+              >
+                {pokemon.name}
+              </h2>
+            </div>
+          </Grid.Item>
+        ))}
+      </Grid>
+    </div >
+      <Link to="/scan">
+        <Button
+          style={{
+            width: "15vw",
+            height: "15vw",
+            position: "fixed",
+            bottom: "0",
+            margin: "1rem 0",
+            borderRadius: "50%",
+            backgroundColor: "#ea2629",
+            left: "50%",
+            marginTop: "-7.5vw",
+            marginLeft: "-7.5vw"
+          }}
+        >
+          <ScanningOutline style={{
+            color: "white"
+          }} />
+        </Button >
+      </Link >
     </>
   );
 };
