@@ -1,6 +1,6 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { LeftOutline } from "antd-mobile-icons";
-import { Button, Form, Input, Toast, Divider } from "antd-mobile";
+import { Button, Form, Input, Toast, Divider, Card } from "antd-mobile";
 
 const TransferPage = () => {
   const navigate = useNavigate();
@@ -55,6 +55,10 @@ const TransferPage = () => {
         icon: "success",
         content: "Transfer Successful",
       });
+
+      setTimeout(() => {
+        navigate(-1);
+      }, 1000);
     } else {
       Toast.show({
         icon: "fail",
@@ -93,65 +97,72 @@ const TransferPage = () => {
             marginBottom: "2rem",
           }}
         />
-
-        <Form
-          form={form}
-          onFinish={handleTransfer}
-          footer={
-            <Button block type="submit" color="primary" size="large">
-              Transfer
-            </Button>
-          }
-        >
-          <Form.Item
-            name="phoneNumber"
-            label="Phone Number"
-            rules={[
-              {
-                pattern: new RegExp(/^[0-9]+$/),
-                message: "Please input a valid number!",
-              },
-              {
-                required: true,
-                message: "Please input the phone number!",
-              },
-            ]}
+        <Card>
+          <Form
+            form={form}
+            onFinish={handleTransfer}
+            footer={
+              <Button block type="submit" color="primary" size="large">
+                Transfer
+              </Button>
+            }
           >
-            <Input
-              clearable={true}
-              style={{
-                borderColor: "#000",
-                borderStyle: "solid",
-                height: "3rem",
-              }}
-              defaultValue={phoneNumber || undefined}
-            />
-          </Form.Item>
+            <Form.Item
+              name="phoneNumber"
+              label="Phone Number"
+              rules={[
+                {
+                  pattern: new RegExp(/^[0-9]+$/),
+                  message: "Please input a valid number!",
+                },
+                {
+                  required: true,
+                  message: "Please input the phone number!",
+                },
+              ]}
+            >
+              <Input
+                clearable={true}
+                style={{
+                  border: "1px solid rgba(0,0,0,0.2)",
+                  height: "3rem",
+                  borderRadius: "0.2rem",
+                  paddingLeft: "1rem",
+                  paddingRight: "0.2rem",
+                  boxSizing: "border-box",
+                }}
+                defaultValue={phoneNumber || undefined}
+              />
+            </Form.Item>
 
-          <Form.Item
-            name="transfer"
-            label="Transfer Amount"
-            rules={[
-              {
-                pattern: new RegExp(/^[0-9]+$/),
-                message: "Please input a valid number!",
-              },
-              {
-                required: true,
-                message: "Please input your transfer amount!",
-              },
-            ]}
-          >
-            <Input
-              clearable={true}
-              style={{
-                borderColor: "#000",
-                borderStyle: "solid",
-                height: "3rem",
-              }}
-            />
-          </Form.Item>
-        </Form>
+            <Form.Item
+              name="transfer"
+              label="Transfer Amount"
+              rules={[
+                {
+                  pattern: new RegExp(/^[0-9]+$/),
+                  message: "Please input a valid number!",
+                },
+                {
+                  required: true,
+                  message: "Please input your transfer amount!",
+                },
+              ]}
+            >
+              <Input
+                clearable={true}
+                style={{
+                  border: "1px solid rgba(0,0,0,0.2)",
+                  height: "3rem",
+                  borderRadius: "0.2rem",
+                  paddingLeft: "1rem",
+                  paddingRight: "0.2rem",
+                  boxSizing: "border-box",
+                }}
+              />
+            </Form.Item>
+          </Form>
+        </Card>
       </div>
     </>
   );

@@ -6,6 +6,9 @@ import {
   SystemQRcodeOutline,
   EyeInvisibleOutline,
   EyeOutline,
+  UnorderedListOutline,
+  AddCircleOutline,
+  UploadOutline,
 } from "antd-mobile-icons";
 
 const DashboardPage = () => {
@@ -109,6 +112,7 @@ const DashboardPage = () => {
             margin: "1rem 0",
             marginTop: "0",
             backgroundColor: "#b61d20",
+            boxShadow: "4px 2px 6px #8c8c8c, -4px 2px 6px #8c8c8c"
           }}
         >
           <h3
@@ -124,7 +128,7 @@ const DashboardPage = () => {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              marginBottom: "0.5rem",
+              marginBottom: "1rem",
             }}
           >
             <h2
@@ -156,47 +160,74 @@ const DashboardPage = () => {
             </div>
           </div>
 
-          <div
+          <Card
             style={{
-              display: "flex",
-              justifyContent: "space-between",
+              backgroundColor: "#ea2629",
             }}
           >
-            <Link to="/topup">
-              <Button fill="solid" color="primary">
-                Top Up
-              </Button>
-            </Link>
-            <Link to="/transfer">
-              <Button fill="solid" color="primary">
-                Transfer
-              </Button>
-            </Link>
-            <Link to="/history">
-              <Button fill="solid" color="primary">
-                History
-              </Button>
-            </Link>
-          </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-around",
+              }}
+            >
+              <Link
+                to="/topup"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  color: "#fff",
+                }}
+              >
+                <AddCircleOutline
+                  fontSize={26}
+                  style={{
+                    marginBottom: "0.5rem",
+                  }}
+                />
+                <span>Top Up</span>
+              </Link>
+              <Link
+                to="/transfer"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  color: "#fff",
+                }}
+              >
+                <UploadOutline
+                  fontSize={26}
+                  style={{
+                    marginBottom: "0.5rem",
+                  }}
+                />
+                <span>Transfer</span>
+              </Link>
+              <Link
+                to="/history"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  color: "#fff",
+                }}
+              >
+                <UnorderedListOutline
+                  fontSize={26}
+                  style={{
+                    marginBottom: "0.5rem",
+                  }}
+                />
+                <span>History</span>
+              </Link>
+            </div>
+          </Card>
         </Card>
-
-        {/* <Divider
-          style={{
-            color: "#000",
-            borderColor: "#000",
-            borderStyle: "solid",
-            margin: "0",
-          }}
-        /> */}
-
-        <Divider
-          style={{
-            color: "#000",
-            borderColor: "#000",
-            borderStyle: "solid",
-            margin: "0",
-          }}
-        />
 
         <Grid
           columns={2}
@@ -254,6 +285,7 @@ const DashboardPage = () => {
             style={{
               padding: "1rem",
               margin: "0.25rem",
+              color: "#fff"
             }}
           >
             Scan QR

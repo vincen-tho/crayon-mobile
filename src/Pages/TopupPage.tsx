@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { LeftOutline } from "antd-mobile-icons";
-import { Button, Input, Form, Toast, Divider } from "antd-mobile";
+import { Button, Input, Form, Toast, Divider, Card } from "antd-mobile";
 
 const TopupPage = () => {
   const navigate = useNavigate();
@@ -51,6 +51,11 @@ const TopupPage = () => {
     });
 
     form.resetFields();
+
+    // redirect to dashboard
+    setTimeout(() => {
+      navigate(-1);
+    }, 1000);
   };
 
   return (
@@ -81,40 +86,45 @@ const TopupPage = () => {
             marginBottom: "2rem",
           }}
         />
-
-        <Form
-          form={form}
-          onFinish={handleTopup}
-          footer={
-            <Button block type="submit" color="primary" size="large">
-              Top Up
-            </Button>
-          }
-        >
-          <Form.Item
-            name="topup"
-            label="Top Up Amount"
-            rules={[
-              {
-                pattern: new RegExp(/^[0-9]+$/),
-                message: "Please input a valid number!",
-              },
-              {
-                required: true,
-                message: "Please input your top up amount!",
-              },
-            ]}
+        <Card>
+          <Form
+            form={form}
+            onFinish={handleTopup}
+            footer={
+              <Button block type="submit" color="primary" size="large">
+                Top Up
+              </Button>
+            }
           >
-            <Input
-              clearable={true}
-              style={{
-                borderColor: "#000",
-                borderStyle: "solid",
-                height: "3rem",
-              }}
-            />
-          </Form.Item>
-        </Form>
+            <Form.Item
+              name="topup"
+              label="Top Up Amount"
+              rules={[
+                {
+                  pattern: new RegExp(/^[0-9]+$/),
+                  message: "Please input a valid number!",
+                },
+                {
+                  required: true,
+                  message: "Please input your top up amount!",
+                },
+              ]}
+            >
+              <Input
+                clearable={true}
+                style={{
+                  border: "1px solid rgba(0,0,0,0.2)",
+                  height: "3rem",
+                  borderRadius: "0.2rem",
+                  paddingLeft: "1rem",
+                  paddingRight: "0.2rem",
+                  boxSizing: "border-box",
+                }}
+                placeholder="Please input amount"
+              />
+            </Form.Item>
+          </Form>
+        </Card>
       </div>
     </>
   );
