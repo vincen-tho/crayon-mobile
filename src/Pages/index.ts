@@ -1,0 +1,10 @@
+export { default as LoginPage } from "./LoginPage";
+export { default as DashboardPage } from "./DashboardPage";
+export { default as RegisterPage } from "./RegisterPage";
+export { default as OtpPage } from "./OtpPage";
+export { default as QrPage } from "./QrPage";
+export { default as TopupPage } from "./TopupPage";
+export { default as TransferPage } from "./TransferPage";
+export { default as ScanQrPage } from "./ScanQrPage";
+export { default as HistoryPage } from "./HistoryPage";
+export { default as LogoutPage } from "./LogoutPage";
