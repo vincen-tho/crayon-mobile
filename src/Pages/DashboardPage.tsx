@@ -6,6 +6,9 @@ import {
   SystemQRcodeOutline,
   EyeInvisibleOutline,
   EyeOutline,
+  UnorderedListOutline,
+  AddCircleOutline,
+  UploadOutline,
 } from "antd-mobile-icons";
 
 const DashboardPage = () => {
@@ -124,7 +127,7 @@ const DashboardPage = () => {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              marginBottom: "0.5rem",
+              marginBottom: "1rem",
             }}
           >
             <h2
@@ -159,44 +162,65 @@ const DashboardPage = () => {
           <div
             style={{
               display: "flex",
-              justifyContent: "space-between",
+              justifyContent: "space-around",
             }}
           >
-            <Link to="/topup">
-              <Button fill="solid" color="primary">
-                Top Up
-              </Button>
+            <Link
+              to="/topup"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                color: "#fff",
+              }}
+            >
+              <AddCircleOutline
+                fontSize={26}
+                style={{
+                  marginBottom: "0.5rem",
+                }}
+              />
+              <span>Top Up</span>
             </Link>
-            <Link to="/transfer">
-              <Button fill="solid" color="primary">
-                Transfer
-              </Button>
+            <Link
+              to="/transfer"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                color: "#fff",
+              }}
+            >
+              <UploadOutline
+                fontSize={26}
+                style={{
+                  marginBottom: "0.5rem",
+                }}
+              />
+              <span>Transfer</span>
             </Link>
-            <Link to="/history">
-              <Button fill="solid" color="primary">
-                History
-              </Button>
+            <Link
+              to="/history"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                color: "#fff",
+              }}
+            >
+              <UnorderedListOutline
+                fontSize={26}
+                style={{
+                  marginBottom: "0.5rem",
+                }}
+              />
+              <span>History</span>
             </Link>
           </div>
         </Card>
-
-        {/* <Divider
-          style={{
-            color: "#000",
-            borderColor: "#000",
-            borderStyle: "solid",
-            margin: "0",
-          }}
-        /> */}
-
-        <Divider
-          style={{
-            color: "#000",
-            borderColor: "#000",
-            borderStyle: "solid",
-            margin: "0",
-          }}
-        />
 
         <Grid
           columns={2}

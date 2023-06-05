@@ -7,3 +7,7 @@ body {
 :root:root {
   --adm-color-primary: #ea2629;
 }
+
+a {
+  text-decoration: none;
+}
