@@ -22,7 +22,7 @@ const HistoryPage = () => {
             display: "flex",
           }}
         >
-          <Button onClick={() => navigate("/dashboard")} fill="none">
+          <Button onClick={() => navigate(-1)} fill="none">
             <LeftOutline />
           </Button>
           <h1>History</h1>
