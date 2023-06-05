@@ -9,6 +9,7 @@ import {
   UnorderedListOutline,
   AddCircleOutline,
   UploadOutline,
+  ScanningOutline
 } from "antd-mobile-icons";
 
 const DashboardPage = () => {
@@ -48,6 +49,7 @@ const DashboardPage = () => {
           display: "flex",
           flexDirection: "column",
           margin: "0 1rem",
+          height: "100vh",
         }}
       >
         <header
@@ -237,7 +239,7 @@ const DashboardPage = () => {
           columns={2}
           style={{
             overflow: "scroll",
-            maxHeight: "47vh",
+            maxHeight: "100%"
           }}
         >
           {pokemonData.map((pokemon: { name: string; url: string }) => (
@@ -268,33 +270,43 @@ const DashboardPage = () => {
             </Grid.Item>
           ))}
         </Grid>
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%",
+            position: "absolute",
+            bottom: "0",
+            backgroundColor: "#ea2629",
+            overflow: "hidden",
+          }}
+        >
+          <Link to="/scan">
+            <Button
+              style={{
+                width: "15vw",
+                height: "15vw",
+                position: "fixed",
+                bottom: "0",
+                margin: "1rem 0",
+                borderRadius: "50%",
+                backgroundColor: "#ea2629",
+                left: "50%",
+                marginTop: "-7.5vw",
+                marginLeft: "-7.5vw"
+              }}
+            >
+              <ScanningOutline style={{
+                color: "white"
+              }} />
+            </Button >
+          </Link >
+        </div>
       </div>
 
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "100%",
-          position: "absolute",
-          bottom: "0",
-          backgroundColor: "#ea2629",
-          overflow: "hidden",
-        }}
-      >
-        <Link to="/scan">
-          <Button
-            fill="none"
-            style={{
-              padding: "1rem",
-              margin: "0.25rem",
-              color: "#fff"
-            }}
-          >
-            Scan QR
-          </Button>
-        </Link>
-      </div>
+      
     </>
   );
 };
