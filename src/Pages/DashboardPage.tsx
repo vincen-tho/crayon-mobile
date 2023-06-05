@@ -112,6 +112,7 @@ const DashboardPage = () => {
             margin: "1rem 0",
             marginTop: "0",
             backgroundColor: "#b61d20",
+            boxShadow: "4px 2px 6px #8c8c8c, -4px 2px 6px #8c8c8c"
           }}
         >
           <h3
@@ -278,6 +279,7 @@ const DashboardPage = () => {
             style={{
               padding: "1rem",
               margin: "0.25rem",
+              color: "#fff"
             }}
           >
             Scan QR
