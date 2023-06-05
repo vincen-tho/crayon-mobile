@@ -1,12 +1,25 @@
-import { useState } from "react";
 import { QrReader } from "react-qr-reader";
 import { Button, Toast, Divider } from "antd-mobile";
 import { LeftOutline } from "antd-mobile-icons";
 import { useNavigate } from "react-router-dom";
+import { QrScanner } from '@yudiel/react-qr-scanner';
 
 const ScanQrPage = () => {
   const navigate = useNavigate();
-  const [data, setData] = useState("");
+
+  const onDecode = (res) => {
+    if (res) {
+      const value = res
+      if (value.match(/\d/g)) {
+        navigate(`/transfer?phoneNumber=${value}`)
+      } else {
+        Toast.show({
+          content: "Invalid QR Code",
+          icon: "fail",
+        });
+      }
+    }
+  }
 
   return (
     <>
@@ -22,7 +35,7 @@ const ScanQrPage = () => {
             display: "flex",
           }}
         >
-          <Button onClick={() => navigate(-1)} fill="none">
+          <Button onClick={() => navigate("/dashboard")} fill="none">
             <LeftOutline />
           </Button>
           <h1>Scan QR</h1>
@@ -36,42 +49,10 @@ const ScanQrPage = () => {
             marginTop: "0",
           }}
         />
-
-        <QrReader
-          constraints={{ facingMode: "environment" }}
-          onResult={(result, error) => {
-            if (result) {
-              setData(result?.text);
-              Toast.show({
-                icon: "success",
-                content: "QR Scanned Successfuly",
-              });
-            }
-
-            if (error) {
-              console.info(error);
-            }
-          }}
+        <QrScanner
+          onDecode={onDecode}
+          onError={(error) => console.log(error?.message)}
         />
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <h2>{data}</h2>
-          {data && (
-            <Button
-              onClick={() => navigate(`/transfer?phoneNumber=${data}`)}
-              style={{ width: "100%" }}
-              color="primary"
-              fill="solid"
-            >
-              Transfer
-            </Button>
-          )}
-        </div>
       </div>
     </>
   );

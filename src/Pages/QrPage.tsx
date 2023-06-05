@@ -28,7 +28,7 @@ const QrPage = () => {
             display: "flex",
           }}
         >
-          <Button onClick={() => navigate(-1)} fill="none">
+          <Button onClick={() => navigate("/dashboard")} fill="none">
             <LeftOutline />
           </Button>
           <h1>QR Code</h1>
