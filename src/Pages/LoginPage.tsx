@@ -1,6 +1,7 @@
 import { Form, Button, Input, Toast, Image } from "antd-mobile";
 import { useNavigate, Link } from "react-router-dom";
-import LoginPicture from '/src/assets/login.avif'
+// import LoginPicture from '/src/assets/login.avif'
+import LoginPicture from '/src/assets/login.png'
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -41,7 +42,8 @@ const LoginPage = () => {
           alignItems: "left",
           flexDirection: "column",
           verticalAlign: "middle",
-          padding: "1rem",
+          paddingLeft: "1rem",
+          paddingRight: "1rem",
           height: "100vh",
           margin: "0 1rem",
         }}
@@ -56,12 +58,16 @@ const LoginPage = () => {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          flexDirection: "row", width: "100%"
-        }}>
+          flexDirection: "row", width: "100%",
+          fontStyle: "normal",
+          fontSize: "14px",
+        }}
+
+        >
           Don't Have an Account Yet?
           <span          >
-            <Link color="red" style={{
-              color: "red",
+            <Link color="#ea2629" style={{
+              color: "#ea2629",
             }} to="/register">Register Here</Link>
           </span>
         </p>
@@ -86,12 +92,13 @@ const LoginPage = () => {
                 paddingLeft: "1rem",
                 paddingRight: "1rem",
               }}>
-              Phone Number
+              <h4 style={{ margin: 0 }}>
+                Phone Number
+              </h4>
 
             </div>
             <Form.Item
               name="phoneNumber"
-              // label="Phone Number"
               rules={[
                 {
                   pattern: new RegExp(/^[0-9]+$/),
@@ -105,7 +112,7 @@ const LoginPage = () => {
             >
               <Input style={{
                 borderBottom: "0.5px solid",
-                color: "red",
+                color: "#ea2629",
               }} placeholder="08123456789" />
             </Form.Item>
           </div>
