@@ -159,67 +159,73 @@ const DashboardPage = () => {
             </div>
           </div>
 
-          <div
+          <Card
             style={{
-              display: "flex",
-              justifyContent: "space-around",
+              backgroundColor: "#ea2629",
             }}
           >
-            <Link
-              to="/topup"
+            <div
               style={{
                 display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                color: "#fff",
+                justifyContent: "space-around",
               }}
             >
-              <AddCircleOutline
-                fontSize={26}
+              <Link
+                to="/topup"
                 style={{
-                  marginBottom: "0.5rem",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  color: "#fff",
                 }}
-              />
-              <span>Top Up</span>
-            </Link>
-            <Link
-              to="/transfer"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                color: "#fff",
-              }}
-            >
-              <UploadOutline
-                fontSize={26}
+              >
+                <AddCircleOutline
+                  fontSize={26}
+                  style={{
+                    marginBottom: "0.5rem",
+                  }}
+                />
+                <span>Top Up</span>
+              </Link>
+              <Link
+                to="/transfer"
                 style={{
-                  marginBottom: "0.5rem",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  color: "#fff",
                 }}
-              />
-              <span>Transfer</span>
-            </Link>
-            <Link
-              to="/history"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                color: "#fff",
-              }}
-            >
-              <UnorderedListOutline
-                fontSize={26}
+              >
+                <UploadOutline
+                  fontSize={26}
+                  style={{
+                    marginBottom: "0.5rem",
+                  }}
+                />
+                <span>Transfer</span>
+              </Link>
+              <Link
+                to="/history"
                 style={{
-                  marginBottom: "0.5rem",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  color: "#fff",
                 }}
-              />
-              <span>History</span>
-            </Link>
-          </div>
+              >
+                <UnorderedListOutline
+                  fontSize={26}
+                  style={{
+                    marginBottom: "0.5rem",
+                  }}
+                />
+                <span>History</span>
+              </Link>
+            </div>
+          </Card>
         </Card>
 
         <Grid

@@ -55,8 +55,7 @@ const TopupPage = () => {
     // redirect to dashboard
     setTimeout(() => {
       navigate(-1);
-    }
-    , 1000);
+    }, 1000);
   };
 
   return (
@@ -87,14 +86,7 @@ const TopupPage = () => {
             marginBottom: "2rem",
           }}
         />
-        <Card
-          style={{
-            backgroundColor: "#FFFFFF",
-            borderRadius: "0.5rem",
-            boxShadow:
-              "0 4px 5px 0 rgba(0, 0, 0, 0.05), 0 3px 14px 3px rgba(0, 0, 0, 0.05), 0 4px 5px 0 rgba(0, 0, 0, 0.05)",
-          }}
-        >
+        <Card>
           <Form
             form={form}
             onFinish={handleTopup}
