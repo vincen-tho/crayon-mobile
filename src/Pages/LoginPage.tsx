@@ -1,5 +1,6 @@
-import { Form, Button, Input, Toast } from "antd-mobile";
+import { Form, Button, Input, Toast, Image } from "antd-mobile";
 import { useNavigate, Link } from "react-router-dom";
+import LoginPicture from '/src/assets/login.avif'
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -37,15 +38,39 @@ const LoginPage = () => {
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
+          alignItems: "left",
           flexDirection: "column",
-          height: "70vh",
+          verticalAlign: "middle",
+          padding: "1rem",
+          height: "100vh",
           margin: "0 1rem",
         }}
       >
-        <h1>Login</h1>
+        <Image src={LoginPicture} width={"100%"} alt="Login Picture" fit="cover" />
+        <h1 style={{
+          marginTop: "1rem",
+          marginBottom: "1rem",
+        }}>Login</h1>
+
+        <p style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          flexDirection: "row", width: "100%"
+        }}>
+          Don't Have an Account Yet?
+          <span          >
+            <Link color="red" style={{
+              color: "red",
+            }} to="/register">Register Here</Link>
+          </span>
+        </p>
         <Form
-          layout="horizontal"
+          style={{
+            padding: "0px",
+            margin: "0px",
+          }}
+          layout="vertical"
           footer={
             <Button block type="submit" color="primary" size="large">
               Login
@@ -53,33 +78,40 @@ const LoginPage = () => {
           }
           onFinish={onFinish}
         >
-          <Form.Item
-            name="phoneNumber"
-            label="Phone Number"
-            rules={[
-              {
-                pattern: new RegExp(/^[0-9]+$/),
-                message: "Please input a valid number!",
-              },
-              {
-                required: true,
-                message: "Please input your number!",
-              },
-            ]}
-          >
-            <Input placeholder="08123456789" />
-          </Form.Item>
+          <div style={{
+            paddingTop: "1rem",
+          }}>
+            <div
+              style={{
+                paddingLeft: "1rem",
+                paddingRight: "1rem",
+              }}>
+              Phone Number
+
+            </div>
+            <Form.Item
+              name="phoneNumber"
+              // label="Phone Number"
+              rules={[
+                {
+                  pattern: new RegExp(/^[0-9]+$/),
+                  message: "Please input a valid number!",
+                },
+                {
+                  required: true,
+                  message: "Please input your number!",
+                },
+              ]}
+            >
+              <Input style={{
+                borderBottom: "0.5px solid",
+                color: "red",
+              }} placeholder="08123456789" />
+            </Form.Item>
+          </div>
+
         </Form>
-        <p>
-          Don't Have Account?{" "}
-          <span
-            style={{
-              fontWeight: "bold",
-            }}
-          >
-            <Link to="/register">Register Here</Link>
-          </span>
-        </p>
+
       </div>
     </>
   );
