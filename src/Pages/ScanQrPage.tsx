@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { QrScanner } from '@yudiel/react-qr-scanner';
 import { Button, Toast, Divider } from "antd-mobile";
 import { LeftOutline } from "antd-mobile-icons";
@@ -6,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 const ScanQrPage = () => {
   const navigate = useNavigate();
-  const [data, setData] = useState("");
 
   const onDecode = (res) => {
     if (res) {
@@ -61,17 +59,6 @@ const ScanQrPage = () => {
             alignItems: "center",
           }}
         >
-          <h2>{data}</h2>
-          {data && (
-            <Button
-              onClick={() => navigate(`/transfer?phoneNumber=${data}`)}
-              style={{ width: "100%" }}
-              color="primary"
-              fill="solid"
-            >
-              Transfer
-            </Button>
-          )}
         </div>
       </div>
     </>
