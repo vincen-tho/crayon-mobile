@@ -10,10 +10,8 @@ const TransferPage = () => {
 
   const [form] = Form.useForm();
 
-  const handleTransfer = (values: {
-    phoneNumber: string;
-    transfer: string;
-  }) => {
+  const handleTransfer = () => {
+    const values = form.getFieldsValue()
     const user = JSON.parse(localStorage.getItem("user") || "");
 
     const newBalance = parseInt(user.balance) - parseInt(values.transfer);
@@ -57,7 +55,7 @@ const TransferPage = () => {
       });
 
       setTimeout(() => {
-        navigate(-1);
+        navigate("/dashboard");
       }, 1000);
     } else {
       Toast.show({
@@ -100,9 +98,8 @@ const TransferPage = () => {
         <Card>
           <Form
             form={form}
-            onFinish={handleTransfer}
             footer={
-              <Button block type="submit" color="primary" size="large">
+              <Button block type="submit" color="primary" size="large" onClick={handleTransfer}>
                 Transfer
               </Button>
             }
@@ -114,10 +111,6 @@ const TransferPage = () => {
                 {
                   pattern: new RegExp(/^[0-9]+$/),
                   message: "Please input a valid number!",
-                },
-                {
-                  required: true,
-                  message: "Please input the phone number!",
                 },
               ]}
             >
@@ -142,10 +135,6 @@ const TransferPage = () => {
                 {
                   pattern: new RegExp(/^[0-9]+$/),
                   message: "Please input a valid number!",
-                },
-                {
-                  required: true,
-                  message: "Please input your transfer amount!",
                 },
               ]}
             >

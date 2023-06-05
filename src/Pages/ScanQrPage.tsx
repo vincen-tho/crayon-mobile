@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { QrReader } from "react-qr-reader";
+import { QrScanner } from '@yudiel/react-qr-scanner';
 import { Button, Toast, Divider } from "antd-mobile";
 import { LeftOutline } from "antd-mobile-icons";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,20 @@ import { useNavigate } from "react-router-dom";
 const ScanQrPage = () => {
   const navigate = useNavigate();
   const [data, setData] = useState("");
+
+  const onDecode = (res) => {
+    if (res) {
+      const value = res
+      if (value.match(/\d/g)) {
+        navigate(`/transfer?phoneNumber=${value}`)
+      } else {
+        Toast.show({
+          content: "Invalid QR Code",
+          icon: "fail",
+        });
+      }
+    }
+  }
 
   return (
     <>
@@ -37,22 +51,9 @@ const ScanQrPage = () => {
           }}
         />
 
-        <QrReader
-          constraints={{ facingMode: "environment" }}
-          onResult={(result, error) => {
-            if (result) {
-              setData(result?.text);
-              Toast.show({
-                icon: "success",
-                content: "QR Scanned Successfuly",
-              });
-            }
-
-            if (error) {
-              console.info(error);
-            }
-          }}
-        />
+        <QrScanner
+          onDecode={onDecode}
+          onError={(error) => console.log(error?.message)} />
         <div
           style={{
             display: "flex",

@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@vitejs/plugin-basic-ssl": "^1.0.1",
+    "@yudiel/react-qr-scanner": "^1.1.8",
     "antd-mobile": "^5.30.0",
     "antd-mobile-icons": "^0.3.0",
     "axios": "^1.4.0",

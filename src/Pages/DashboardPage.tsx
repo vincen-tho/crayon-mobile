@@ -9,6 +9,7 @@ import {
   UnorderedListOutline,
   AddCircleOutline,
   UploadOutline,
+  ScanningOutline
 } from "antd-mobile-icons";
 
 const DashboardPage = () => {
@@ -43,197 +44,204 @@ const DashboardPage = () => {
 
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          margin: "0 1rem",
-        }}
-      >
-        <header
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <h1
-            style={{
-              margin: "1rem, 0",
-            }}
-          >
-            Dashboard
-          </h1>
-
-          <Link to="/logout">
-            <Button color="danger" fill="outline">
-              Logout
-            </Button>
-          </Link>
-        </header>
-
-        <Divider
-          style={{
-            color: "#000",
-            borderColor: "#000",
-            borderStyle: "solid",
-            margin: "0",
-          }}
-        />
-
+      <div style={{
+        display: "flex",
+        flexDirection: "column",
+        margin: "0 1rem",
+      }}>
         <div
           style={{
             display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            margin: "0.5rem",
+            flexDirection: "column",
+            height: "47vh",
           }}
         >
-          <h2
+          <header
             style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <h1
+              style={{
+                margin: "1rem, 0",
+              }}
+            >
+              Dashboard
+            </h1>
+
+            <Link to="/logout">
+              <Button color="danger" fill="outline">
+                Logout
+              </Button>
+            </Link>
+          </header>
+
+          <Divider
+            style={{
+              color: "#000",
+              borderColor: "#000",
+              borderStyle: "solid",
               margin: "0",
             }}
-          >
-            {user?.name} ({user?.phoneNumber})
-          </h2>
-          <Link to="/qr">
-            <SystemQRcodeOutline
-              fontSize={35}
-              style={{
-                padding: "0",
-                color: "#000",
-              }}
-            />
-          </Link>
-        </div>
+          />
 
-        <Card
-          style={{
-            margin: "1rem 0",
-            marginTop: "0",
-            backgroundColor: "#b61d20",
-            boxShadow: "4px 2px 6px #8c8c8c, -4px 2px 6px #8c8c8c"
-          }}
-        >
-          <h3
-            style={{
-              fontWeight: "normal",
-              color: "#fff",
-            }}
-          >
-            Active Balance:{" "}
-          </h3>
           <div
             style={{
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              marginBottom: "1rem",
+              margin: "0.5rem",
             }}
           >
             <h2
               style={{
                 margin: "0",
-                color: "#fff",
               }}
             >
-              {visible ? idr(parseInt(user?.balance)) : "*****"}
+              {user?.name} ({user?.phoneNumber})
             </h2>
-            <div>
-              {!visible ? (
-                <EyeInvisibleOutline
-                  fontSize={26}
-                  onClick={() => setVisible(true)}
-                  style={{
-                    color: "#fff",
-                  }}
-                />
-              ) : (
-                <EyeOutline
-                  fontSize={26}
-                  onClick={() => setVisible(false)}
-                  style={{
-                    color: "#fff",
-                  }}
-                />
-              )}
-            </div>
+            <Link to="/qr">
+              <SystemQRcodeOutline
+                fontSize={35}
+                style={{
+                  padding: "0",
+                  color: "#000",
+                }}
+              />
+            </Link>
           </div>
 
           <Card
             style={{
-              backgroundColor: "#ea2629",
+              margin: "1rem 0",
+              marginTop: "0",
+              backgroundColor: "#b61d20",
+              boxShadow: "4px 2px 6px #8c8c8c, -4px 2px 6px #8c8c8c"
             }}
           >
+            <h3
+              style={{
+                fontWeight: "normal",
+                color: "#fff",
+              }}
+            >
+              Active Balance:{" "}
+            </h3>
             <div
               style={{
                 display: "flex",
-                justifyContent: "space-around",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "1rem",
               }}
             >
-              <Link
-                to="/topup"
+              <h2
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
+                  margin: "0",
                   color: "#fff",
                 }}
               >
-                <AddCircleOutline
-                  fontSize={26}
-                  style={{
-                    marginBottom: "0.5rem",
-                  }}
-                />
-                <span>Top Up</span>
-              </Link>
-              <Link
-                to="/transfer"
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  color: "#fff",
-                }}
-              >
-                <UploadOutline
-                  fontSize={26}
-                  style={{
-                    marginBottom: "0.5rem",
-                  }}
-                />
-                <span>Transfer</span>
-              </Link>
-              <Link
-                to="/history"
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  color: "#fff",
-                }}
-              >
-                <UnorderedListOutline
-                  fontSize={26}
-                  style={{
-                    marginBottom: "0.5rem",
-                  }}
-                />
-                <span>History</span>
-              </Link>
+                {visible ? idr(parseInt(user?.balance)) : "*****"}
+              </h2>
+              <div>
+                {!visible ? (
+                  <EyeInvisibleOutline
+                    fontSize={26}
+                    onClick={() => setVisible(true)}
+                    style={{
+                      color: "#fff",
+                    }}
+                  />
+                ) : (
+                  <EyeOutline
+                    fontSize={26}
+                    onClick={() => setVisible(false)}
+                    style={{
+                      color: "#fff",
+                    }}
+                  />
+                )}
+              </div>
             </div>
-          </Card>
-        </Card>
 
+            <Card
+              style={{
+                backgroundColor: "#ea2629",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-around",
+                }}
+              >
+                <Link
+                  to="/topup"
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    color: "#fff",
+                  }}
+                >
+                  <AddCircleOutline
+                    fontSize={26}
+                    style={{
+                      marginBottom: "0.5rem",
+                    }}
+                  />
+                  <span>Top Up</span>
+                </Link>
+                <Link
+                  to="/transfer"
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    color: "#fff",
+                  }}
+                >
+                  <UploadOutline
+                    fontSize={26}
+                    style={{
+                      marginBottom: "0.5rem",
+                    }}
+                  />
+                  <span>Transfer</span>
+                </Link>
+                <Link
+                  to="/history"
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    color: "#fff",
+                  }}
+                >
+                  <UnorderedListOutline
+                    fontSize={26}
+                    style={{
+                      marginBottom: "0.5rem",
+                    }}
+                  />
+                  <span>History</span>
+                </Link>
+              </div>
+            </Card>
+          </Card>
+
+
+        </div>
         <Grid
           columns={2}
           style={{
             overflow: "scroll",
-            maxHeight: "47vh",
+            maxHeight: "53vh",
           }}
         >
           {pokemonData.map((pokemon: { name: string; url: string }) => (
@@ -248,9 +256,8 @@ const DashboardPage = () => {
                 }}
               >
                 <img
-                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-                    pokemon.url.split("/")[6]
-                  }.png`}
+                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split("/")[6]
+                    }.png`}
                   alt={pokemon.name}
                 />
                 <h2
@@ -266,32 +273,26 @@ const DashboardPage = () => {
           ))}
         </Grid>
       </div>
-
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "100%",
-          position: "absolute",
-          bottom: "0",
-          backgroundColor: "#ea2629",
-          overflow: "hidden",
-        }}
-      >
-        <Link to="/scan">
-          <Button
-            fill="none"
-            style={{
-              padding: "1rem",
-              margin: "0.25rem",
-              color: "#fff"
-            }}
-          >
-            Scan QR
-          </Button>
-        </Link>
-      </div>
+      <Link to="/scan">
+        <Button
+          style={{
+            width: "15vw",
+            height: "15vw",
+            position: "fixed",
+            bottom: "0",
+            margin: "1rem 0",
+            borderRadius: "50%",
+            backgroundColor: "#ea2629",
+            left: "50%",
+            marginTop: "-7.5vw",
+            marginLeft: "-7.5vw"
+          }}
+        >
+          <ScanningOutline style={{
+            color: "white"
+          }} />
+        </Button >
+      </Link >
     </>
   );
 };
