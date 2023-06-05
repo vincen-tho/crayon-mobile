@@ -108,12 +108,13 @@ const DashboardPage = () => {
           style={{
             margin: "1rem 0",
             marginTop: "0",
-            backgroundColor: "#c6d0de",
+            backgroundColor: "#b61d20",
           }}
         >
           <h3
             style={{
               fontWeight: "normal",
+              color: "#fff",
             }}
           >
             Active Balance:{" "}
@@ -129,6 +130,7 @@ const DashboardPage = () => {
             <h2
               style={{
                 margin: "0",
+                color: "#fff",
               }}
             >
               {visible ? idr(parseInt(user?.balance)) : "*****"}
@@ -138,28 +140,22 @@ const DashboardPage = () => {
                 <EyeInvisibleOutline
                   fontSize={26}
                   onClick={() => setVisible(true)}
+                  style={{
+                    color: "#fff",
+                  }}
                 />
               ) : (
-                <EyeOutline fontSize={26} onClick={() => setVisible(false)} />
+                <EyeOutline
+                  fontSize={26}
+                  onClick={() => setVisible(false)}
+                  style={{
+                    color: "#fff",
+                  }}
+                />
               )}
             </div>
           </div>
-        </Card>
 
-        <Divider
-          style={{
-            color: "#000",
-            borderColor: "#000",
-            borderStyle: "solid",
-            margin: "0",
-          }}
-        />
-
-        <div
-          style={{
-            padding: "1rem",
-          }}
-        >
           <div
             style={{
               display: "flex",
@@ -182,7 +178,16 @@ const DashboardPage = () => {
               </Button>
             </Link>
           </div>
-        </div>
+        </Card>
+
+        {/* <Divider
+          style={{
+            color: "#000",
+            borderColor: "#000",
+            borderStyle: "solid",
+            margin: "0",
+          }}
+        /> */}
 
         <Divider
           style={{
@@ -239,7 +244,7 @@ const DashboardPage = () => {
           width: "100%",
           position: "absolute",
           bottom: "0",
-          backgroundColor: "#c6d0de",
+          backgroundColor: "#ea2629",
           overflow: "hidden",
         }}
       >
