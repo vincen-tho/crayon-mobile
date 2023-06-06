@@ -6,7 +6,6 @@ const HistoryPage = () => {
   const navigate = useNavigate();
 
   const user = JSON.parse(localStorage.getItem("user") || "");
-  console.log("user", user.history);
 
   return (
     <>
@@ -37,35 +36,37 @@ const HistoryPage = () => {
           }}
         />
 
-        <List
-          header="
+        <Card>
+          <List
+            header="
         Transaction History
         "
-        >
-          {user.history.map((item: { type: string; nominal: string }) => (
-            <List.Item>
-              <span
-                style={{
-                  fontWeight: "bold",
-                  display: "inline-block",
-                  width: "5rem",
-                }}
-              >
-                {item.type === "topup" ? "Top Up" : "Transfer"}
-              </span>
-              {" | "}
-              <span
-                style={{
-                  color: item.type === "topup" ? "green" : "red",
-                  fontWeight: "bold",
-                  marginLeft: "1rem",
-                }}
-              >
-                {item.nominal}
-              </span>
-            </List.Item>
-          ))}
-        </List>
+          >
+            {user.history.map((item: { type: string; nominal: string }) => (
+              <List.Item>
+                <span
+                  style={{
+                    fontWeight: "bold",
+                    display: "inline-block",
+                    width: "5rem",
+                  }}
+                >
+                  {item.type === "topup" ? "Top Up" : "Transfer"}
+                </span>
+                {" | "}
+                <span
+                  style={{
+                    color: item.type === "topup" ? "green" : "red",
+                    fontWeight: "bold",
+                    marginLeft: "1rem",
+                  }}
+                >
+                  {item.nominal}
+                </span>
+              </List.Item>
+            ))}
+          </List>
+        </Card>
       </div>
     </>
   );

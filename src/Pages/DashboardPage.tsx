@@ -1,4 +1,4 @@
-import { Button, Card, Divider, Grid } from "antd-mobile";
+import { Button, Card, Grid } from "antd-mobile";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -9,7 +9,7 @@ import {
   UnorderedListOutline,
   AddCircleOutline,
   UploadOutline,
-  ScanningOutline
+  ScanningOutline,
 } from "antd-mobile-icons";
 
 const DashboardPage = () => {
@@ -75,23 +75,12 @@ const DashboardPage = () => {
           </Link>
         </header>
 
-        {/* <Divider
-          style={{
-            color: "#000",
-            borderColor: "#000",
-            borderStyle: "solid",
-            margin: "0",
-          }}
-        /> */}
-
-
-
         <Card
           style={{
             margin: "1rem 0",
             marginTop: "0",
             backgroundColor: "#b61d20",
-            boxShadow: "4px 2px 6px #8c8c8c, -4px 2px 6px #8c8c8c"
+            boxShadow: "4px 2px 6px #8c8c8c, -4px 2px 6px #8c8c8c",
           }}
         >
           <div
@@ -99,7 +88,6 @@ const DashboardPage = () => {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              // margin: "0.5rem",
               color: "#fff",
             }}
           >
@@ -239,7 +227,7 @@ const DashboardPage = () => {
           columns={2}
           style={{
             overflow: "scroll",
-            maxHeight: "100%"
+            maxHeight: "100%",
           }}
         >
           {pokemonData.map((pokemon: { name: string; url: string }) => (
@@ -254,8 +242,9 @@ const DashboardPage = () => {
                 }}
               >
                 <img
-                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split("/")[6]
-                    }.png`}
+                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+                    pokemon.url.split("/")[6]
+                  }.png`}
                   alt={pokemon.name}
                 />
                 <h2
@@ -295,18 +284,19 @@ const DashboardPage = () => {
                 backgroundColor: "#ea2629",
                 left: "50%",
                 marginTop: "-7.5vw",
-                marginLeft: "-7.5vw"
+                marginLeft: "-7.5vw",
               }}
             >
-              <ScanningOutline style={{
-                color: "white"
-              }} />
-            </Button >
-          </Link >
+              <ScanningOutline
+                fontSize={26}
+                style={{
+                  color: "white",
+                }}
+              />
+            </Button>
+          </Link>
         </div>
       </div>
-
-      
     </>
   );
 };
