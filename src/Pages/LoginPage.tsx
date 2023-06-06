@@ -73,7 +73,7 @@ const LoginPage = () => {
             fontSize: "14px",
           }}
         >
-          Don't Have an Account Yet?
+          Don't Have an Account?
           <span>
             <Link
               color="#ea2629"
