@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const ScanQrPage = () => {
   const navigate = useNavigate();
 
-  const onDecode = (res) => {
+  const onDecode = (res: any) => {
     if (res) {
       const value = res;
       if (value.match(/\d/g)) {
