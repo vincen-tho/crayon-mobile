@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import OtpInput from "react-otp-input";
-import { Divider, Button } from "antd-mobile";
+import { Divider, Button, Toast } from "antd-mobile";
 
 const OtpPage = () => {
   const navigate = useNavigate();
@@ -9,9 +9,14 @@ const OtpPage = () => {
 
   const handleSubmit = (event: React.MouseEvent) => {
     event.preventDefault();
-    alert("OTP Verified");
+    Toast.show({
+      icon: "success",
+      content: "Login Successful",
+    });
     console.log(otp);
-    navigate("/dashboard");
+    setTimeout(() => {
+      navigate("/dashboard");
+    }, 1000);
   };
 
   const clearOtp = () => setOtp("");
