@@ -19,3 +19,11 @@ a {
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.05),
     0 3px 14px 3px rgba(0, 0, 0, 0.05), 0 4px 5px 0 rgba(0, 0, 0, 0.05);
 }
+
+.toast-error div div div {
+  color: #ea2629;
+}
+
+.toast-success div div div {
+  color: #00a65a;
+}

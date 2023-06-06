@@ -1,4 +1,4 @@
-import { QrScanner } from '@yudiel/react-qr-scanner';
+import { QrScanner } from "@yudiel/react-qr-scanner";
 import { Button, Toast, Divider } from "antd-mobile";
 import { LeftOutline } from "antd-mobile-icons";
 import { useNavigate } from "react-router-dom";
@@ -8,17 +8,18 @@ const ScanQrPage = () => {
 
   const onDecode = (res) => {
     if (res) {
-      const value = res
+      const value = res;
       if (value.match(/\d/g)) {
-        navigate(`/transfer?phoneNumber=${value}`)
+        navigate(`/transfer?phoneNumber=${value}`);
       } else {
         Toast.show({
+          maskClassName: "toast-error",
           content: "Invalid QR Code",
           icon: "fail",
         });
       }
     }
-  }
+  };
 
   return (
     <>
@@ -51,15 +52,15 @@ const ScanQrPage = () => {
 
         <QrScanner
           onDecode={onDecode}
-          onError={(error) => console.log(error?.message)} />
+          onError={(error) => console.log(error?.message)}
+        />
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
           }}
-        >
-        </div>
+        ></div>
       </div>
     </>
   );

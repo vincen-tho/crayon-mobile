@@ -46,6 +46,7 @@ const TopupPage = () => {
     localStorage.setItem("database", JSON.stringify(updatedDatabase));
 
     Toast.show({
+      maskClassName: "toast-success",
       icon: "success",
       content: "Top Up Successful",
     });

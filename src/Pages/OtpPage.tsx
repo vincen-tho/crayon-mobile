@@ -10,6 +10,7 @@ const OtpPage = () => {
   const handleSubmit = (event: React.MouseEvent) => {
     event.preventDefault();
     Toast.show({
+      maskClassName: "toast-success",
       icon: "success",
       content: "Login Successful",
     });

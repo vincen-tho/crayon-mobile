@@ -11,7 +11,7 @@ const TransferPage = () => {
   const [form] = Form.useForm();
 
   const handleTransfer = () => {
-    const values = form.getFieldsValue()
+    const values = form.getFieldsValue();
     const user = JSON.parse(localStorage.getItem("user") || "");
 
     const newBalance = parseInt(user.balance) - parseInt(values.transfer);
@@ -50,6 +50,7 @@ const TransferPage = () => {
       localStorage.setItem("database", JSON.stringify(updatedDatabase));
 
       Toast.show({
+        maskClassName: "toast-success",
         icon: "success",
         content: "Transfer Successful",
       });
@@ -59,6 +60,7 @@ const TransferPage = () => {
       }, 1000);
     } else {
       Toast.show({
+        maskClassName: "toast-error",
         icon: "fail",
         content: "Insufficient balance",
       });
@@ -99,7 +101,13 @@ const TransferPage = () => {
           <Form
             form={form}
             footer={
-              <Button block type="submit" color="primary" size="large" onClick={handleTransfer}>
+              <Button
+                block
+                type="submit"
+                color="primary"
+                size="large"
+                onClick={handleTransfer}
+              >
                 Transfer
               </Button>
             }

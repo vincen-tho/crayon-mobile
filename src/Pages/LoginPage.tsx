@@ -1,15 +1,13 @@
 import { Form, Button, Input, Toast, Image } from "antd-mobile";
 import { useNavigate, Link } from "react-router-dom";
 // import LoginPicture from '/src/assets/login.avif'
-import LoginPicture from '/src/assets/login.png'
+import LoginPicture from "/src/assets/login.png";
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const database = JSON.parse(localStorage.getItem("database") || "[]");
 
   const onFinish = (values: { phoneNumber: string }) => {
-    console.log("Success:", values);
-
     const found = database.find(
       (data: {
         name: string;
@@ -27,6 +25,7 @@ const LoginPage = () => {
       navigate("/otp");
     } else {
       Toast.show({
+        maskClassName: "toast-error",
         icon: "fail",
         content: "Phone number not registered!",
       });
@@ -48,27 +47,43 @@ const LoginPage = () => {
           margin: "0 1rem",
         }}
       >
-        <Image src={LoginPicture} width={"100%"} alt="Login Picture" fit="cover" />
-        <h1 style={{
-          marginTop: "1rem",
-          marginBottom: "1rem",
-        }}>Login</h1>
+        <Image
+          src={LoginPicture}
+          width={"100%"}
+          alt="Login Picture"
+          fit="cover"
+        />
+        <h1
+          style={{
+            marginTop: "1rem",
+            marginBottom: "1rem",
+          }}
+        >
+          Login
+        </h1>
 
-        <p style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          flexDirection: "row", width: "100%",
-          fontStyle: "normal",
-          fontSize: "14px",
-        }}
-
+        <p
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            flexDirection: "row",
+            width: "100%",
+            fontStyle: "normal",
+            fontSize: "14px",
+          }}
         >
           Don't Have an Account Yet?
-          <span          >
-            <Link color="#ea2629" style={{
-              color: "#ea2629",
-            }} to="/register">Register Here</Link>
+          <span>
+            <Link
+              color="#ea2629"
+              style={{
+                color: "#ea2629",
+              }}
+              to="/register"
+            >
+              Register Here
+            </Link>
           </span>
         </p>
         <Form
@@ -84,18 +99,18 @@ const LoginPage = () => {
           }
           onFinish={onFinish}
         >
-          <div style={{
-            paddingTop: "1rem",
-          }}>
+          <div
+            style={{
+              paddingTop: "1rem",
+            }}
+          >
             <div
               style={{
                 paddingLeft: "1rem",
                 paddingRight: "1rem",
-              }}>
-              <h4 style={{ margin: 0 }}>
-                Phone Number
-              </h4>
-
+              }}
+            >
+              <h4 style={{ margin: 0 }}>Phone Number</h4>
             </div>
             <Form.Item
               name="phoneNumber"
@@ -110,15 +125,16 @@ const LoginPage = () => {
                 },
               ]}
             >
-              <Input style={{
-                borderBottom: "0.5px solid",
-                color: "#ea2629",
-              }} placeholder="08123456789" />
+              <Input
+                style={{
+                  borderBottom: "0.5px solid",
+                  color: "#ea2629",
+                }}
+                placeholder="08123456789"
+              />
             </Form.Item>
           </div>
-
         </Form>
-
       </div>
     </>
   );
