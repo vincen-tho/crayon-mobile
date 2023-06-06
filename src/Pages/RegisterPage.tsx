@@ -1,7 +1,6 @@
 import { Button, Form, Input, Image } from "antd-mobile";
 import { useNavigate, Link } from "react-router-dom";
-import RegisterPicture from '/src/assets/register.jpg'
-
+import RegisterPicture from "/src/assets/register.jpg";
 
 const RegisterPage = () => {
   const navigate = useNavigate();
@@ -36,27 +35,43 @@ const RegisterPage = () => {
           margin: "0 1rem",
         }}
       >
-        <Image src={RegisterPicture} width={"100%"} alt="Register Picture" fit="cover" />
-        <h1 style={{
-          marginTop: "1rem",
-          marginBottom: "1rem",
-        }}>Register</h1>
+        <Image
+          src={RegisterPicture}
+          width={"100%"}
+          alt="Register Picture"
+          fit="cover"
+        />
+        <h1
+          style={{
+            marginTop: "1rem",
+            marginBottom: "1rem",
+          }}
+        >
+          Register
+        </h1>
 
-        <p style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          flexDirection: "row", width: "100%",
-          fontStyle: "normal",
-          fontSize: "14px",
-        }}
-
+        <p
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            flexDirection: "row",
+            width: "100%",
+            fontStyle: "normal",
+            fontSize: "14px",
+          }}
         >
           Already Have Account?
-          <span          >
-            <Link color="#ea2629" style={{
-              color: "#ea2629",
-            }} to="/">Login Here</Link>
+          <span>
+            <Link
+              color="#ea2629"
+              style={{
+                color: "#ea2629",
+              }}
+              to="/"
+            >
+              Login Here
+            </Link>
           </span>
         </p>
         <Form
@@ -70,14 +85,10 @@ const RegisterPage = () => {
           <div
             style={{
               paddingTop: "1rem",
-
             }}
           >
             <div>
-
-              <h4 style={{ margin: 0 }}>
-                Phone Number
-              </h4>
+              <h4 style={{ margin: 0 }}>Phone Number</h4>
             </div>
             <Form.Item
               name="phoneNumber"
@@ -93,19 +104,18 @@ const RegisterPage = () => {
               ]}
               style={{ padding: 0 }}
             >
-              <Input style={{
-                borderBottom: "0.5px solid",
-                color: "#ea2629",
-              }} placeholder="08123456789" />
+              <Input
+                style={{
+                  borderBottom: "0.5px solid",
+                  color: "#ea2629",
+                }}
+                placeholder="08123456789"
+              />
             </Form.Item>
           </div>
-          <div
-          >
+          <div>
             <div>
-
-              <h4 style={{ margin: 0 }}>
-                Name
-              </h4>
+              <h4 style={{ margin: 0 }}>Name</h4>
             </div>
             <Form.Item
               name="name"
@@ -121,19 +131,20 @@ const RegisterPage = () => {
               ]}
               style={{ padding: 0 }}
             >
-              <Input style={{
-                borderBottom: "0.5px solid",
-                color: "#ea2629",
-              }} placeholder="John Doe" />
+              <Input
+                style={{
+                  borderBottom: "0.5px solid",
+                  color: "#ea2629",
+                }}
+                placeholder="John Doe"
+              />
             </Form.Item>
           </div>
 
+          <Button block type="submit" color="primary" size="large">
+            Register
+          </Button>
         </Form>
-
-        <Button block type="submit" color="primary" size="large">
-          Register
-        </Button>
-
       </div>
     </>
   );
