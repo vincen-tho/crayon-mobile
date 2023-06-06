@@ -92,25 +92,16 @@ const LoginPage = () => {
             margin: "0px",
           }}
           layout="vertical"
-          footer={
-            <Button block type="submit" color="primary" size="large">
-              Login
-            </Button>
-          }
           onFinish={onFinish}
         >
-          <div
-            style={{
-              paddingTop: "1rem",
-            }}
-          >
-            <div
-              style={{
-                paddingLeft: "1rem",
-                paddingRight: "1rem",
-              }}
-            >
-              <h4 style={{ margin: 0 }}>Phone Number</h4>
+          <div style={{
+            paddingTop: "1rem",
+          }}>
+            <div>
+              <h4 style={{ margin: 0 }}>
+                Phone Number
+              </h4>
+
             </div>
             <Form.Item
               name="phoneNumber"
@@ -124,16 +115,15 @@ const LoginPage = () => {
                   message: "Please input your number!",
                 },
               ]}
+              style={{ padding: 0 }}
             >
-              <Input
-                style={{
-                  borderBottom: "0.5px solid",
-                  color: "#ea2629",
-                }}
-                placeholder="08123456789"
-              />
+              <Input style={{ borderBottom: "0.5px solid #ea2629" }} placeholder="08123456789" />
             </Form.Item>
           </div>
+          <Button block type="submit" color="primary" size="large">
+            Login
+          </Button>
+
         </Form>
       </div>
     </>

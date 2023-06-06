@@ -65,11 +65,6 @@ const RegisterPage = () => {
             margin: "0px",
           }}
           layout="vertical"
-          footer={
-            <Button block type="submit" color="primary" size="large">
-              Register
-            </Button>
-          }
           onFinish={onFinish}
         >
           <div
@@ -78,10 +73,7 @@ const RegisterPage = () => {
 
             }}
           >
-            <div style={{
-              paddingLeft: "1rem",
-              paddingRight: "1rem",
-            }}>
+            <div>
 
               <h4 style={{ margin: 0 }}>
                 Phone Number
@@ -99,6 +91,7 @@ const RegisterPage = () => {
                   message: "Please input your number!",
                 },
               ]}
+              style={{ padding: 0 }}
             >
               <Input style={{
                 borderBottom: "0.5px solid",
@@ -108,10 +101,7 @@ const RegisterPage = () => {
           </div>
           <div
           >
-            <div style={{
-              paddingLeft: "1rem",
-              paddingRight: "1rem",
-            }}>
+            <div>
 
               <h4 style={{ margin: 0 }}>
                 Name
@@ -129,6 +119,7 @@ const RegisterPage = () => {
                   message: "Please input your name!",
                 },
               ]}
+              style={{ padding: 0 }}
             >
               <Input style={{
                 borderBottom: "0.5px solid",
@@ -138,6 +129,10 @@ const RegisterPage = () => {
           </div>
 
         </Form>
+
+        <Button block type="submit" color="primary" size="large">
+          Register
+        </Button>
 
       </div>
     </>

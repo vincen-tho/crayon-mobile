@@ -27,3 +27,7 @@ a {
 .toast-success div div div {
   color: #00a65a;
 }
+
+.adm-list-item-content {
+  padding: 0;
+}
